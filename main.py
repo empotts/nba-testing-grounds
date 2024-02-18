@@ -1,5 +1,5 @@
-from nba_api import nba_api
 
+from nba_api.stats.endpoints import playergamelog
 from nba_api.stats.static import players
 player_dict = players.get_players()
 
@@ -13,3 +13,4 @@ from nba_api.stats.static import teams
 teams = teams.get_teams()
 GSW = [x for x in teams if x['full_name'] == 'Golden State Warriors'][0]
 GSW_id = GSW['id']
+
