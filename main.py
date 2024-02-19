@@ -51,7 +51,17 @@ fig = plt.scatter(
 )
 fig.show()
 '''
-
+print(top_500_avg)
 
 top_10 = top_500_avg.sort_values(by='PTS', ascending=False).head(10)
 print(top_10)
+
+plt.scatter(top_500_avg['PTS'], top_500_avg['FG3M'], c=top_500_avg['PTS'], cmap='viridis')
+plt.xlabel('Points')
+plt.ylabel('Three Pointers Made per Game')  
+
+for index, row in top_500_avg.iterrows():
+    if row['PTS'] > 1300:
+        plt.annotate(index[0], (row['PTS'], row['FG3M']))
+
+plt.show()
